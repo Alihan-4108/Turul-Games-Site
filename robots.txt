@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alihan-4108.github.io/Turul-Games-Site/sitemap.xml
