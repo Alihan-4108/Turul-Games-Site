@@ -4,8 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Turul Games — Independent mobile game studio</title>
-<meta name="description" content="Turul Games is a new independent studio building original mobile games — quick to start, hard to forget.">
+<meta name="description" content="Turul Games is an independent game studio in Türkiye making original mobile games for iOS and Android — quick to start, hard to forget.">
 <link rel="canonical" href="https://alihan-4108.github.io/Turul-Games-Site/">
+
+<!-- Apply the saved theme before first paint (avoids a light/dark flash) -->
+<script>
+  try { var t = localStorage.getItem("turul-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  document.documentElement.classList.add("js");
+</script>
 
 <!-- Favicons -->
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -19,408 +25,364 @@
 <!-- Open Graph / social preview -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Turul Games">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="Turul Games — Independent mobile game studio">
-<meta property="og:description" content="Turul Games is a new independent studio building original mobile games — quick to start, hard to forget.">
+<meta property="og:description" content="An independent studio making original games for iOS and Android. Quick to start, hard to forget.">
 <meta property="og:url" content="https://alihan-4108.github.io/Turul-Games-Site/">
 <meta property="og:image" content="https://alihan-4108.github.io/Turul-Games-Site/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Turul Games logo — a red and teal falcon — with the tagline Quick to start. Hard to forget.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Turul Games — Independent mobile game studio">
-<meta name="twitter:description" content="Turul Games is a new independent studio building original mobile games — quick to start, hard to forget.">
+<meta name="twitter:description" content="An independent studio making original games for iOS and Android. Quick to start, hard to forget.">
 <meta name="twitter:image" content="https://alihan-4108.github.io/Turul-Games-Site/assets/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Turul Games",
+  "url": "https://alihan-4108.github.io/Turul-Games-Site/",
+  "logo": "https://alihan-4108.github.io/Turul-Games-Site/assets/icon-512.png",
+  "email": "turulgames0@gmail.com",
+  "description": "Independent studio building original mobile games.",
+  "address": { "@type": "PostalAddress", "addressCountry": "TR" }
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<style>
-  :root{
-    /* dark-first: this is the primary design */
-    --logo:url("assets/icon-512.png");
-    --bg:#0E1417;
-    --surface:#161F23;
-    --surface-2:#1E282D;
-    --border:#2A363C;
-    --text:#ECE7E1;
-    --text-dim:#98A2A7;
-    --ember:#F0463A;
-    --sky:#6BD0DA;
-    --gold:#E8B23C;
-    --btn-ink:#1B1210;
-
-    --ff-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
-    --ff-body:"Instrument Sans","Segoe UI",system-ui,sans-serif;
-    --ff-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-
-    --step--1:.83rem;
-    --step-0:1.0625rem;
-    --step-1:1.3rem;
-    --step-2:1.75rem;
-    --step-3:2.4rem;
-    --step-hero:clamp(2.6rem,1.4rem + 4.6vw,4.9rem);
-
-    --wrap:1060px;
-  }
-  @media (prefers-color-scheme: light){
-    :root:not([data-theme="dark"]){
-      --bg:#F6F3EF;
-      --surface:#FFFFFF;
-      --surface-2:#EEE8E1;
-      --border:#E1D9CF;
-      --text:#15191C;
-      --text-dim:#5B6569;
-      --ember:#CE2B25;
-      --sky:#2C93A0;
-      --gold:#B07C21;
-      --btn-ink:#FFF6F4;
-    }
-  }
-  :root[data-theme="light"]{
-    --bg:#F6F3EF;
-    --surface:#FFFFFF;
-    --surface-2:#EEE8E1;
-    --border:#E1D9CF;
-    --text:#15191C;
-    --text-dim:#5B6569;
-    --ember:#CE2B25;
-    --sky:#2C93A0;
-    --gold:#B07C21;
-    --btn-ink:#FFF6F4;
-  }
-  :root[data-theme="dark"]{
-    --bg:#0E1417;
-    --surface:#161F23;
-    --surface-2:#1E282D;
-    --border:#2A363C;
-    --text:#ECE7E1;
-    --text-dim:#98A2A7;
-    --ember:#F0463A;
-    --sky:#6BD0DA;
-    --gold:#E8B23C;
-    --btn-ink:#1B1210;
-  }
-
-  *,*::before,*::after{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:var(--ff-body);
-    font-size:var(--step-0);
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-  ::selection{background:var(--ember);color:#fff}
-  a{color:inherit}
-  :focus-visible{outline:2px solid var(--sky);outline-offset:3px;border-radius:2px}
-
-  .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
-  .prose{max-width:60ch}
-  .prose p + p{margin-top:1rem}
-
-  .eyebrow{
-    font-family:var(--ff-mono);
-    font-size:var(--step--1);
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--text-dim);
-    margin:0 0 1.1rem;
-    display:flex;align-items:center;gap:.7rem;
-  }
-  .eyebrow::before{content:"";width:1.6rem;height:1px;background:var(--ember)}
-
-  h1,h2,h3{font-family:var(--ff-display);font-weight:700;line-height:1.08;text-wrap:balance;margin:0}
-  h2{font-size:var(--step-3);letter-spacing:-.01em}
-  h3{font-size:var(--step-1);font-weight:600}
-
-  /* ---------- nav ---------- */
-  .nav{
-    position:sticky;top:0;z-index:50;
-    background:color-mix(in srgb,var(--bg) 86%,transparent);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    border-bottom:1px solid transparent;
-    transition:border-color .25s ease;
-  }
-  .nav.scrolled{border-bottom-color:var(--border)}
-  .nav-inner{
-    max-width:var(--wrap);margin-inline:auto;
-    padding:.85rem clamp(1.25rem,5vw,3rem);
-    display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  }
-  .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--ff-display);font-weight:700;letter-spacing:.02em;font-size:1rem}
-  .brand-mark{width:30px;height:30px;background:var(--logo) center/contain no-repeat;flex:none}
-  .brand span b{color:var(--ember);font-weight:700}
-  .nav-links{display:flex;align-items:center;gap:1.6rem}
-  .nav-links a{
-    text-decoration:none;color:var(--text-dim);font-size:var(--step--1);
-    font-family:var(--ff-mono);letter-spacing:.04em;
-    transition:color .18s ease;
-  }
-  .nav-links a:hover{color:var(--text)}
-  .theme-btn{
-    background:none;border:1px solid var(--border);color:var(--text-dim);
-    width:34px;height:34px;border-radius:999px;cursor:pointer;
-    display:grid;place-items:center;transition:color .18s ease,border-color .18s ease;
-  }
-  .theme-btn:hover{color:var(--text);border-color:var(--text-dim)}
-  .theme-btn svg{width:16px;height:16px}
-  @media (max-width:680px){ .nav-links a:not(.nav-cta){display:none} }
-
-  /* ---------- hero ---------- */
-  .hero{position:relative;overflow:hidden;padding-block:clamp(4rem,3rem + 9vw,8.5rem)}
-  .hero-glow{
-    position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:
-      radial-gradient(38rem 26rem at 8% 12%, color-mix(in srgb,var(--ember) 22%,transparent), transparent 70%),
-      radial-gradient(40rem 28rem at 98% 8%, color-mix(in srgb,var(--sky) 20%,transparent), transparent 72%);
-    opacity:.55;
-  }
-  .hero-watermark{
-    position:absolute;z-index:0;right:-8vw;top:50%;transform:translateY(-50%);
-    width:min(60vw,640px);aspect-ratio:1;
-    background:var(--logo) center/contain no-repeat;
-    opacity:.05;pointer-events:none;
-  }
-  .hero-inner{position:relative;z-index:1;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
-  .hero h1{
-    font-size:var(--step-hero);font-weight:800;letter-spacing:-.02em;
-    max-width:17ch;margin-bottom:1.6rem;
-  }
-  .hero h1 .flare{color:var(--ember)}
-  @supports ((-webkit-background-clip:text) or (background-clip:text)){
-    .hero h1 .flare{
-      background:linear-gradient(100deg,var(--ember),var(--sky));
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-    }
-  }
-  .hero .lede{font-size:var(--step-1);color:var(--text-dim);max-width:46ch;margin:0 0 2.2rem}
-  .actions{display:flex;flex-wrap:wrap;gap:.85rem}
-  .btn{
-    display:inline-flex;align-items:center;gap:.5rem;
-    font-family:var(--ff-mono);font-size:var(--step--1);letter-spacing:.04em;
-    text-decoration:none;padding:.8rem 1.3rem;border-radius:4px;
-    border:1px solid transparent;transition:transform .12s ease,background .18s ease,border-color .18s ease;
-  }
-  .btn:active{transform:translateY(1px)}
-  .btn--primary{background:var(--ember);color:var(--btn-ink);font-weight:500}
-  .btn--primary:hover{background:color-mix(in srgb,var(--ember) 88%,#000)}
-  .btn--ghost{border-color:var(--border);color:var(--text)}
-  .btn--ghost:hover{border-color:var(--ember)}
-
-  @media (prefers-reduced-motion: no-preference){
-    .hero-inner > *{animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
-    .hero-inner > :nth-child(2){animation-delay:.06s}
-    .hero-inner > :nth-child(3){animation-delay:.12s}
-    @keyframes rise{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:none}}
-  }
-
-  /* ---------- sections ---------- */
-  .section{padding-block:clamp(3.5rem,2.5rem + 6vw,6.5rem);border-top:1px solid var(--border)}
-  .section-head{margin-bottom:2.4rem}
-
-  .facts{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-    background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;
-    margin-top:2.6rem;
-  }
-  .fact{background:var(--bg);padding:1.1rem 1.2rem}
-  .fact dt{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dim);margin:0 0 .35rem}
-  .fact dd{margin:0;font-family:var(--ff-display);font-weight:600;font-size:1.02rem}
-  @media (max-width:720px){ .facts{grid-template-columns:repeat(2,1fr)} }
-
-  /* building panel — the one lifted element on the page */
-  .panel{
-    background:var(--surface);border:1px solid var(--border);border-radius:8px;
-    padding:clamp(1.6rem,1rem + 3vw,2.8rem);
-    display:grid;gap:1.1rem;
-  }
-  .panel .prose{max-width:52ch}
-  .panel .btn{margin-top:.4rem;align-self:start}
-  .panel-tag{
-    font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--gold);display:flex;align-items:center;gap:.55rem;
-  }
-  .panel-tag::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--gold);box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 25%,transparent)}
-
-  /* approach — a set of parallel principles */
-  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem 2.2rem;margin-top:.5rem}
-  .principle{border-top:2px solid var(--ember);padding-top:1rem}
-  .principle:nth-child(2){border-top-color:var(--sky)}
-  .principle:nth-child(3){border-top-color:var(--gold)}
-  .principle h3{margin-bottom:.5rem}
-  .principle p{margin:0;color:var(--text-dim);font-size:.98rem}
-  @media (max-width:760px){ .principles{grid-template-columns:1fr;gap:1.6rem} }
-
-  /* contact */
-  .contact-mail{
-    display:inline-block;margin-top:1.6rem;
-    font-family:var(--ff-display);font-weight:700;
-    font-size:clamp(1.5rem,1rem + 2.4vw,2.4rem);
-    color:var(--ember);text-decoration:none;letter-spacing:-.01em;
-    border-bottom:2px solid transparent;transition:border-color .18s ease;
-  }
-  .contact-mail:hover{border-bottom-color:var(--ember)}
-
-  /* footer */
-  footer{border-top:1px solid var(--border);padding-block:2.4rem}
-  .foot-inner{
-    max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem);
-    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;
-    color:var(--text-dim);font-size:var(--step--1);
-  }
-  .foot-inner .brand{font-size:.9rem}
-  .foot-inner .brand-mark{width:22px;height:22px}
-</style>
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/main.js" defer></script>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top" aria-label="Turul Games home">
-      <span class="brand-mark" role="img" aria-label="Turul Games logo"></span>
+    <a class="brand" href="#top" aria-label="Turul Games — back to top">
+      <img class="brand-mark" src="assets/icon-192.png" alt="" width="32" height="32">
       <span>TURUL <b>GAMES</b></span>
     </a>
-    <nav class="nav-links">
-      <a href="#studio">Studio</a>
-      <a href="#building">Building</a>
-      <a href="#approach">Approach</a>
-      <a href="#contact" class="nav-cta">Contact</a>
-      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-          <path class="ico-moon" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
-        </svg>
-      </button>
+
+    <nav class="nav-menu" id="navMenu" aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#games">Games</a></li>
+        <li><a href="#studio">Studio</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+
+    <div class="nav-tools">
+      <a class="btn btn--primary btn--sm nav-cta" href="#contact">Get in touch</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme">
+        <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="menu-lines" aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </header>
 
-<main id="top">
+<main id="main">
 
-  <section class="hero" id="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="hero-watermark" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <p class="eyebrow">Independent mobile game studio</p>
-      <h1>A game studio named after a bird that <span class="flare">never lands</span>.</h1>
-      <p class="lede">Turul Games is a new studio building original games for phones — quick to pick up, built to keep coming back to.</p>
-      <div class="actions">
-        <a class="btn btn--primary" href="#contact">Get in touch</a>
-        <a class="btn btn--ghost" href="#studio">About the studio</a>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-grid-lines"></div>
+      <div class="hero-glow"></div>
+    </div>
+
+    <div class="wrap hero-layout">
+      <div class="hero-copy">
+        <p class="eyebrow">Independent game studio &middot; T&uuml;rkiye</p>
+        <h1 id="hero-title">Games that are quick to start and <span class="flare">hard&nbsp;to&nbsp;forget.</span></h1>
+        <p class="lede">Turul Games is a new independent studio making original games for iOS and Android &mdash; named after the mythic falcon that never lands.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#games">
+            See what we&rsquo;re building
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#contact">Work with us</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit orbit--1" data-depth="6"></div>
+        <div class="orbit orbit--2" data-depth="12"><span class="orbit-dot"></span></div>
+        <div class="orbit orbit--3" data-depth="18"></div>
+        <div class="emblem-glow" data-depth="10"></div>
+        <div class="emblem" data-depth="22">
+          <img src="assets/icon-512.png" alt="" width="512" height="512" fetchpriority="high">
+        </div>
+        <div class="chip chip--status" data-depth="34">
+          <span class="pulse"></span>
+          <span><small>Now building</small>Debut title</span>
+        </div>
+        <div class="chip chip--platform" data-depth="28">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
+          <span>iOS &amp; Android</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Quick to start</span><span>Hard to forget</span><span>Respect the tap</span><span>Short but deep</span><span>Made by hand</span><span>iOS &amp; Android</span>
+        <span>Quick to start</span><span>Hard to forget</span><span>Respect the tap</span><span>Short but deep</span><span>Made by hand</span><span>iOS &amp; Android</span>
       </div>
     </div>
   </section>
 
-  <section class="section" id="studio">
+  <!-- ============ GAMES ============ -->
+  <section class="section" id="games" aria-labelledby="games-title">
     <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">The studio</p>
-        <h2>Small team, mobile-first, all in.</h2>
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow">Our games</p>
+          <h2 id="games-title">One game on the workbench.</h2>
+        </div>
+        <p class="section-note">We build one game at a time and give it everything. Here&rsquo;s what&rsquo;s in the hangar right now.</p>
       </div>
-      <div class="prose">
-        <p>The <em>turul</em> is the mythic falcon of Turkic legend — a messenger moving between the sky and the earth. We took the name because it&rsquo;s how we want our games to feel: fast, sharp, and hard to forget.</p>
-        <p>We design for the way people actually play on a phone — a few minutes at a time, one hand, often in the middle of something else — and we sweat the small details that make those minutes feel good.</p>
+
+      <div class="games-list">
+        <!--
+          GAME CARD — to add a released game, duplicate this <article> and:
+          · replace .game-art contents with
+            <img src="assets/games/NAME-key-art.webp" alt="DESCRIBE THE ARTWORK" width="1600" height="1000" loading="lazy" decoding="async">
+          · set the badge to "Out now", fill in genre/platforms
+          · replace the CTA with store links, e.g.
+            <a class="btn btn--primary" href="APP_STORE_URL">App Store</a>
+            <a class="btn btn--ghost" href="GOOGLE_PLAY_URL">Google Play</a>
+        -->
+        <article class="game-card" data-reveal data-spotlight>
+          <div class="game-art game-art--teaser">
+            <div class="teaser-sky"></div>
+            <div class="teaser-floor"></div>
+            <img class="teaser-emblem" src="assets/icon-512.png" alt="" width="512" height="512" loading="lazy" decoding="async">
+            <span class="frame-corner frame-corner--tl" aria-hidden="true"></span>
+            <span class="frame-corner frame-corner--tr" aria-hidden="true"></span>
+            <span class="frame-corner frame-corner--bl" aria-hidden="true"></span>
+            <span class="frame-corner frame-corner--br" aria-hidden="true"></span>
+            <span class="badge badge--live">In development</span>
+            <span class="teaser-label">Key art under wraps</span>
+          </div>
+
+          <div class="game-body">
+            <p class="game-kicker">Game 01 &middot; Debut title</p>
+            <h3 class="game-title">Our first game</h3>
+            <p>We&rsquo;re heads-down on our debut title. It&rsquo;s too early to show &mdash; but not too early to talk. If you&rsquo;re a publisher, an artist, or a player who wants an early look, get on the list and we&rsquo;ll keep you posted.</p>
+            <dl class="game-meta">
+              <div><dt>Status</dt><dd>In development</dd></div>
+              <div><dt>Platforms</dt><dd>iOS &amp; Android</dd></div>
+              <div><dt>Genre</dt><dd>To be revealed</dd></div>
+            </dl>
+            <div class="actions">
+              <a class="btn btn--primary" href="mailto:turulgames0@gmail.com?subject=Early%20look%20%E2%80%94%20Turul%20Games">Email us for early access</a>
+            </div>
+          </div>
+        </article>
       </div>
-      <dl class="facts">
+    </div>
+  </section>
+
+  <!-- ============ STUDIO ============ -->
+  <section class="section section--band" id="studio" aria-labelledby="studio-title">
+    <div class="wrap">
+      <div class="studio-layout">
+        <div class="studio-copy" data-reveal>
+          <p class="eyebrow">The studio</p>
+          <h2 id="studio-title">Small team, mobile-first, all&nbsp;in.</h2>
+          <div class="prose">
+            <p>We took our name from the <em>turul</em> because it&rsquo;s how we want our games to feel: fast, sharp, and hard to forget.</p>
+            <p>We design for the way people actually play on a phone &mdash; a few minutes at a time, one hand, often in the middle of something else &mdash; and we sweat the small details that make those minutes feel good.</p>
+          </div>
+        </div>
+
+        <figure class="myth-card" data-reveal style="--d:1">
+          <p class="myth-word">turul <span>noun</span></p>
+          <blockquote>The mythic falcon of Turkic legend &mdash; a messenger moving between the sky and the earth.</blockquote>
+          <img src="assets/icon-512.png" alt="" width="512" height="512" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <dl class="facts" data-reveal>
         <div class="fact"><dt>Platforms</dt><dd>iOS &amp; Android</dd></div>
         <div class="fact"><dt>Focus</dt><dd>Original games</dd></div>
         <div class="fact"><dt>Team</dt><dd>Small &amp; hands-on</dd></div>
         <div class="fact"><dt>Based in</dt><dd>T&uuml;rkiye</dd></div>
       </dl>
-    </div>
-  </section>
 
-  <section class="section" id="building">
-    <div class="wrap">
-      <div class="panel">
-        <span class="panel-tag">In development</span>
-        <h2>Our first game is on the workbench.</h2>
-        <div class="prose">
-          <p>We&rsquo;re heads-down on our debut title. It&rsquo;s too early to show — but not too early to talk. If you&rsquo;re a publisher, an artist, or a player who wants an early look, get on the list and we&rsquo;ll keep you posted.</p>
-        </div>
-        <a class="btn btn--primary" href="mailto:turulgames0@gmail.com?subject=Early%20look%20—%20Turul%20Games">Email us for early access</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="approach">
-    <div class="wrap">
-      <div class="section-head">
+      <div class="principles-head" data-reveal>
         <p class="eyebrow">How we work</p>
-        <h2>Three things we don&rsquo;t compromise on.</h2>
+        <h3 class="h-sub">Three things we don&rsquo;t compromise on.</h3>
       </div>
-      <div class="principles">
-        <div class="principle">
-          <h3>Respect the tap</h3>
+      <ol class="principles">
+        <li class="principle" data-reveal>
+          <span class="principle-num" aria-hidden="true">01</span>
+          <h4>Respect the tap</h4>
           <p>Every screen earns its place. No dark patterns, no timers built to nag you back.</p>
-        </div>
-        <div class="principle">
-          <h3>Short but deep</h3>
+        </li>
+        <li class="principle" data-reveal style="--d:1">
+          <span class="principle-num" aria-hidden="true">02</span>
+          <h4>Short but deep</h4>
           <p>Easy to start in ten seconds. Worth returning to for months.</p>
-        </div>
-        <div class="principle">
-          <h3>Made by hand</h3>
+        </li>
+        <li class="principle" data-reveal style="--d:2">
+          <span class="principle-num" aria-hidden="true">03</span>
+          <h4>Made by hand</h4>
           <p>A small team and real craft. One game we love beats five we don&rsquo;t.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="section" id="team" aria-labelledby="team-title">
+    <div class="wrap team-layout">
+      <div class="team-copy" data-reveal>
+        <p class="eyebrow">Team</p>
+        <h2 id="team-title">Small on purpose.</h2>
+        <div class="prose">
+          <p>Turul Games is a small, hands-on team. Fewer handoffs means more time on the details that make a game feel right. Individual profiles are on the way.</p>
+        </div>
+
+        <!--
+          TEAM GRID — when you're ready to introduce people, uncomment and duplicate:
+          <ul class="team-grid">
+            <li class="member">
+              <img class="member-photo" src="assets/team/NAME.webp" alt="Portrait of NAME" width="400" height="400" loading="lazy" decoding="async">
+              <h3 class="member-name">NAME</h3>
+              <p class="member-role">ROLE</p>
+            </li>
+          </ul>
+        -->
+      </div>
+
+      <aside class="join-card" data-reveal style="--d:1">
+        <p class="eyebrow">Fly with us</p>
+        <h3>Artists, sound designers, publishers&nbsp;&mdash;</h3>
+        <p>If the way we make games resonates with you, we&rsquo;d like to hear from you. Share a portfolio, a pitch or just an idea.</p>
+        <a class="btn btn--ghost" href="mailto:turulgames0@gmail.com?subject=Collaboration%20%E2%80%94%20Turul%20Games">Start a conversation</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ NEWS ============ -->
+  <section class="section" id="news" aria-labelledby="news-title">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow">News &amp; updates</p>
+          <h2 id="news-title">From the workbench.</h2>
+        </div>
+        <p class="section-note">Releases, devlogs and studio announcements &mdash; only when there&rsquo;s something real to say.</p>
+      </div>
+
+      <div class="news-list">
+        <!--
+          NEWS ENTRY — duplicate this <article> for each update (newest first):
+          <article class="news-item" data-reveal>
+            <div class="news-meta"><span class="tag">Release</span><time datetime="2026-01-31">31 Jan 2026</time></div>
+            <div class="news-body"><h3>TITLE</h3><p>SUMMARY</p><a class="link-arrow" href="URL">Read more</a></div>
+          </article>
+        -->
+        <article class="news-item" data-reveal>
+          <div class="news-meta"><span class="tag tag--live">Status</span><span class="news-when">Now</span></div>
+          <div class="news-body">
+            <h3>Our first game is on the workbench</h3>
+            <p>The debut title is in active development for iOS and Android. We&rsquo;ll share the name, genre and first look here when it&rsquo;s ready.</p>
+          </div>
+        </article>
+
+        <div class="news-empty" data-reveal style="--d:1">
+          <p>More updates will land here as development moves forward.</p>
+          <a class="link-arrow" href="mailto:turulgames0@gmail.com?subject=Keep%20me%20posted%20%E2%80%94%20Turul%20Games">Get updates by email</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
     <div class="wrap">
-      <div class="section-head">
+      <div class="contact-panel" data-reveal>
+        <img class="contact-watermark" src="assets/icon-512.png" alt="" width="512" height="512" loading="lazy" decoding="async">
         <p class="eyebrow">Say hello</p>
-        <h2>Publishing, press, or just curious?</h2>
+        <h2 id="contact-title">Publishing, press, or just&nbsp;curious?</h2>
+        <p class="contact-lede">This reaches us directly. We read everything and we reply.</p>
+
+        <div class="contact-mail-row">
+          <a class="contact-mail" href="mailto:turulgames0@gmail.com">turulgames0@gmail.com</a>
+          <button class="copy-btn" type="button" data-copy="turulgames0@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            <span class="copy-label">Copy</span>
+          </button>
+          <span class="visually-hidden" role="status" aria-live="polite" id="copyStatus"></span>
+        </div>
+
+        <ul class="topics">
+          <li><a class="topic" href="mailto:turulgames0@gmail.com?subject=Publishing%20%E2%80%94%20Turul%20Games">
+            <span class="topic-title">Publishing</span><span class="topic-text">Partners interested in our games</span></a></li>
+          <li><a class="topic" href="mailto:turulgames0@gmail.com?subject=Collaboration%20%E2%80%94%20Turul%20Games">
+            <span class="topic-title">Collaboration</span><span class="topic-text">Artists, audio and other creatives</span></a></li>
+          <li><a class="topic" href="mailto:turulgames0@gmail.com?subject=Press%20%E2%80%94%20Turul%20Games">
+            <span class="topic-title">Press</span><span class="topic-text">Coverage, interviews and questions</span></a></li>
+          <li><a class="topic" href="mailto:turulgames0@gmail.com?subject=Hello%20%E2%80%94%20Turul%20Games">
+            <span class="topic-title">General</span><span class="topic-text">Players, questions, anything else</span></a></li>
+        </ul>
       </div>
-      <div class="prose">
-        <p>This reaches us directly. We read everything and we reply.</p>
-      </div>
-      <a class="contact-mail" href="mailto:turulgames0@gmail.com">turulgames0@gmail.com</a>
     </div>
   </section>
 
 </main>
 
-<footer>
-  <div class="foot-inner">
-    <a class="brand" href="#top" aria-label="Turul Games home">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span>TURUL <b>GAMES</b></span>
-    </a>
-    <span>&copy; <span id="year">2026</span> Turul Games. All rights reserved.</span>
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Turul Games — back to top">
+          <img class="brand-mark" src="assets/icon-192.png" alt="" width="32" height="32" loading="lazy">
+          <span>TURUL <b>GAMES</b></span>
+        </a>
+        <p>Quick to start. Hard to forget.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Footer">
+        <p class="footer-label">Explore</p>
+        <ul>
+          <li><a href="#games">Games</a></li>
+          <li><a href="#studio">Studio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#news">News</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <p class="footer-label">Contact</p>
+        <ul>
+          <li><a href="mailto:turulgames0@gmail.com">turulgames0@gmail.com</a></li>
+          <!-- Add social profiles here when they exist, e.g. <li><a href="https://…" rel="me">X / Twitter</a></li> -->
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="year">2026</span> Turul Games. All rights reserved.</span>
+      <!-- Add a Privacy Policy link here once published: <a href="privacy.html">Privacy</a> -->
+      <a class="to-top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a>
+    </div>
   </div>
 </footer>
-
-<script>
-  (function(){
-    var root = document.documentElement;
-    var btn = document.getElementById("themeBtn");
-    var stored = null;
-    try { stored = localStorage.getItem("turul-theme"); } catch(e){}
-    if (stored === "light" || stored === "dark") root.setAttribute("data-theme", stored);
-
-    function currentIsDark(){
-      var t = root.getAttribute("data-theme");
-      if (t) return t === "dark";
-      return window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
-    btn.addEventListener("click", function(){
-      var next = currentIsDark() ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem("turul-theme", next); } catch(e){}
-    });
-
-    var nav = document.getElementById("nav");
-    var onScroll = function(){ nav.classList.toggle("scrolled", window.scrollY > 8); };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive:true });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  })();
-</script>
 
 </body>
 </html>
